@@ -132,7 +132,7 @@ while True: # Muestreo
     
     # POST
 
-    url = "http://tiroleo.tech/WebApi/API/gei"
+    url = "TU URL AQUÍ"
     
     data = '{ "NOMBRE_ESTACION": "ESTACION FECOPROD", "LPG": ' + LPGppm + ', "CH4": '+CH4ppm+', "CO": '+COppm+', "CO2": '+CO2ppm+', "NH3": '+NH3ppm+', "LATITUD": -25.26303300,  "LONGITUD": -57.58180900, "FECHA": "'+time.strftime("%Y-%m-%dT%T")+'", "ID": 1}'
 
