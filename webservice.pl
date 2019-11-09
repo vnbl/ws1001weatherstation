@@ -2,7 +2,7 @@ use LWP::UserAgent;
 use HTTP::Request::Common;
 
 my $ua = LWP::UserAgent->new;
-my $server_endpoint = "http://tiroleo.tech/WebApi/api/trabajosclima";
+my $server_endpoint = "tu webserver aqui";
 
 my $req = HTTP::Request->new(POST => $server_endpoint);
 $req->header('content-type' => 'text/json');
