@@ -1,0 +1,20 @@
+{ 
+
+    "lectura_por_hora":{  
+	"observation_time":"Last Updated on  2018-3-16 13:43:21 ", 
+	"indoor_humidity":"59 ", 
+	"indoor_temperature":"24 ", 
+	"outdoor_humidity":"60 ", 
+	"outdoor_temperature":"32.29 ", 
+       	"dewpoint":"23.6 ", 
+       	"windchill":"32.29 ", 
+       	"pressure":"763.4 ", 
+   	"wind_average":" 3 ", 
+      	"wind_gust":" 4.4 ", 
+ 	"wind_direction":" 124 ", 
+    	"precip_week":" 0 ", 
+    	"precip_year":" 376.2 ", 
+	"solar_radiation":" 793.71 ", 
+              "UV":" 10 ", 
+                  }  
+ }                   
