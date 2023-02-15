@@ -1,10 +1,12 @@
 # ws1001weatherstation
+
 this is code for reading a WS1001 weather station with a RaspberryPi and sending the info to a web server. It also contains code for doing the same with commecial gas sensors connected to the RPi
 
 Instructions in Spanish - Instrucciones en español
 
 
-Instalaciones Previas: 
+# Instalaciones Previas: 
+
 Instalar Pearl 6 (manualmente, NO CON CPAN)
 Instalar la libreria del digitalizador MCP3008 de Adafruit
 Abrir los puertos TCP de comunicacion. Esto se realiza modificando el archivo xserverrc.sh del sistema de la siguiente manera
@@ -15,20 +17,31 @@ exec /usr/bin/X -nolisten tcp "$@" # COMENTAR ESTA LINEA
     El archivo xserverrc.sh del sistema se encuentra en la direcion /etc/X11/xinit/xserverrc
 
 Instrucciones de Instalación
-Copiar todos los archivos en una carpeta en el raspberry pi.
-Buscar el IP del raspberry (en terminal: $ sudo ifconfig)
-Modificar el archivo run_ws.sh: En la línea 29: $wx_bin_dir/ws1001wxdata.pl -i 192.168.1.101 $data_dir/msg-udp-srch.dat $data_dir/msg-tcp-nowrec-req.dat $data_dir/ewpdata.json >> $log 2>&1 .Cambiar el IP anterior por el nuevo hallado en el paso 2. Asegurarse de que la red a la que esta conectada el Raspberry le de IP ESTATICA.
-Inicialización automática y checkeo de funcionamiento: Los procesos de inicialización y control de fallos se realizan cada 1 minuto utilizando la funcionalidad crontab de Linux. Los archivos de inicialización y checkeo son run_ws.sh y checkWS.sh respectivamente para la Estacion Meteorológica y estaciongases.py y checkGEI.sh para la Estación de Gases. Como instalar: 
+* Copiar todos los archivos en una carpeta en el raspberry pi.
+* Buscar el IP del raspberry (en terminal: $ sudo ifconfig)
+* Modificar el archivo run_ws.sh: En la línea 29: $wx_bin_dir/ws1001wxdata.pl -i 192.168.1.101 $data_dir/msg-udp-srch.dat $data_dir/msg-tcp-nowrec-req.dat $data_dir/ewpdata.json >> $log 2>&1 .
+* Cambiar el IP anterior por el nuevo hallado en el paso 2. Asegurarse de que la red a la que esta conectada el Raspberry le de IP ESTATICA.
+* Inicialización automática y checkeo de funcionamiento: Los procesos de inicialización y control de fallos se realizan cada 1 minuto utilizando la funcionalidad crontab de Linux. Los archivos de inicialización y checkeo son run_ws.sh y checkWS.sh respectivamente para la Estacion Meteorológica y estaciongases.py y checkGEI.sh para la Estación de Gases. 
+
+# Como instalar: 
+
 En terminal: crontab -e
+
 Seleccionar editor nano 
+
 En la última línea del archivo colocar:
+
 1 * * * * sudo sh  /home/pi/estacion_digibox_v3/checkWS.sh
+
 @reboot sudo sh /home/pi/estacion_digibox_v3/run_ws.sh
+
 1 * * * * sudo sh /home/pi/estacion_digibox_v3/checkGEI.sh
+
 @reboot sudo python /home/pi/estacion_digibox_v3/estaciongases.py
+
 Rebootear el sistema >> En terminal: $ reboot
 
-Estación Meteorologica - Archivos
+# Estación Meteorologica - Archivos
 
 checkWS.sh
 
@@ -37,7 +50,6 @@ Control de funcionamiento del archivo ws1001wxdata.pl. El control de funcionamie
 Run_ws.sh
 
 Este archivo se encarga de dar al archivo de control de la estacion ws1001wxdata los datos necesarios para empezar los protocolos TCP y UDP de comunicacion con la estacion, IP, direccionar los archivos de log de eventos y comenzar a correr la estacion.
-
 
 ewpdata.json
 
